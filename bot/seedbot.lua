@@ -219,7 +219,7 @@ function create_config( )
     "download_media",
     "invite"
     },
-    sudo_users = {110626080,103649648,0,tonumber(our_id)},--Sudo users
+    sudo_users = {179983320(our_id)},--Sudo users
     disabled_channels = {},
     realm = {},--Realms Id
     moderation = {data = 'data/moderation.json'},
@@ -227,42 +227,43 @@ function create_config( )
 An advance Administration bot based on yagop/telegram-bot 
 https://github.com/SEEDTEAM/TeleSeed
 Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@seyedan25 [Manager]
-Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
-Our channels
-@teleseedch [English]
+@unkownhacker
 ]],
     help_text = [[
 Commands list :
 !kick [username|id]
+اخراج از گروه 
 You can also do it by reply
 !ban [ username|id]
+اخراج و مسدود کردن
 You can also do it by reply
 !unban [id]
 You can also do it by reply
 !who
+لیست افراد
 Members list
 !modlist
+لیست مدیران گروه
 Moderators list
 !promote [username]
+مدیر کردن
 Promote someone
 !demote [username]
+خلع مدیر گروه
 Demote someone
 !kickme
+مرا از گروه اخراج کن
 Will kick user
 !about
 Group description
 !setphoto
+قفل و تعیین عکس گروه
 Set and locks group photo
 !setname [name]
+تعیین اسم گروه
 Set group name
 !rules
+قوانین
 Group rules
 !id
 return group id or user id
