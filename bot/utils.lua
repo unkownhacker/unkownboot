@@ -565,7 +565,7 @@ function ban_user(user_id, chat_id)
   kick_user(user_id, chat_id)
 end
 -- Global ban
-function banall_user(user_id)  
+function banever_user(user_id)  
   if tonumber(user_id) == tonumber(our_id) then -- Ignore bot
     return
   end
@@ -577,7 +577,7 @@ function banall_user(user_id)
   redis:sadd(hash, user_id)
 end
 -- Global unban
-function unbanall_user(user_id)
+function unbanever_user(user_id)
   --Save on redis  
   local hash =  'gbanned'
   redis:srem(hash, user_id)
@@ -611,7 +611,7 @@ function ban_list(chat_id)
 end
 
 -- Returns globally ban list
-function banall_list() 
+function banever_list() 
   local hash =  'gbanned'
   local list = redis:smembers(hash)
   local text = "global bans !\n\n"
@@ -635,10 +635,10 @@ function Kick_by_reply(extra, success, result)
   if result.to.type == 'chat' then
     local chat = 'chat#id'..result.to.id
     if tonumber(result.from.id) == tonumber(our_id) then -- Ignore bot
-      return "I won't kick myself"
+      return "are you ok?"
     end
     if is_momod2(result.from.id, result.to.id) then -- Ignore mods,owner,admin
-      return "you can't kick mods,owner and admins"
+      return "من نمیتوانم مدیران گروه.صاحب گروه.مدیران اصلی ربات را اخراج کنم"
     end
     chat_del_user(chat, 'user#id'..result.from.id, ok_cb, false)
   else
@@ -670,7 +670,7 @@ function ban_by_reply(extra, success, result)
       return "I won't ban myself"
   end
   if is_momod2(result.from.id, result.to.id) then -- Ignore mods,owner,admin
-    return "you can't kick mods,owner and admins"
+    return "من نمیتوانم مدیران گروه.صاحب گروه.مدیران اصلی ربات را اخراج کنم""
   end
   ban_user(result.from.id, result.to.id)
   send_large_msg(chat, "User "..result.from.id.." Banned")
